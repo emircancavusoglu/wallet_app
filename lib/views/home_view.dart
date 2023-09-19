@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/theme/app_bar_theme.dart';
+import 'package:wallet_app/theme/app_theme.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -153,12 +153,14 @@ class _HomeViewState extends State<HomeView> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Bank Bca")),
+                    child: Title(color: Colors.white, child: const Text(
+                      "Bank Bca",
+                    style: TextStyle(color: TextColor.titleColor),)),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: Title(color: Colors.white, child: const Text("Top Up",
-                      style: TextStyle(color: Colors.grey) ,)),
+                      style: TextStyle(color: TextColor.subtitleColor) ,)),
                   ),
                 ],
               ),
@@ -170,8 +172,8 @@ class _HomeViewState extends State<HomeView> {
               const Padding(padding: EdgeInsets.only(left: 10)),
               ClipOval(
                 child: Image.network('https://randomuser.me/api/portraits/men/66.jpg',
-                  width: 40,
-                  height: 40,
+                  width: ImageSize.imageWidth,
+                  height: ImageSize.imageHeight,
                 ),
               ),
               Column(
@@ -192,6 +194,7 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.grey,
         onTap: _onItemTapped,
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
