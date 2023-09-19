@@ -45,19 +45,7 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           const SizedBox(height: 10,),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.price_change),
-                label: const Text("Top Up"),style: TextButton.styleFrom(backgroundColor: Colors.grey),
-              ),
-              const SizedBox(width: 10,),
-              ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.currency_exchange_sharp),
-                label: const Text("Transfer"),style:
-                TextButton.styleFrom(backgroundColor: Colors.grey),
-              ),
-            ],
-          ),
+          const ProfileWidget(),
           const SizedBox(height: 20,),
           Container(
             margin: const EdgeInsets.only(right: 280),
@@ -65,132 +53,15 @@ class _HomeViewState extends State<HomeView> {
             ),
           ),
           const SizedBox(height: 20,),
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 10)),
-              ClipOval(
-                child: Image.network('https://randomuser.me/api/portraits/men/66.jpg',
-                  width: 40,
-                  height: 40,
-                ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Bank Bca")),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Top Up",
-                      style: TextStyle(color: Colors.grey) ,)),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const ProfileWidget(),
           const Padding(padding: EdgeInsets.only(top: 30)),
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 10)),
-              ClipOval(
-                child: Image.network('https://randomuser.me/api/portraits/men/66.jpg',
-                  width: 40,
-                  height: 40,
-                ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Bank Bca")),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Top Up",
-                      style: TextStyle(color: Colors.grey) ,)),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const ProfileWidget(),
           const Padding(padding: EdgeInsets.only(top: 30)),
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 10)),
-              ClipOval(
-                child: Image.network('https://randomuser.me/api/portraits/men/66.jpg',
-                  width: 40,
-                  height: 40,
-                ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Bank Bca")),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Top Up",
-                      style: TextStyle(color: Colors.grey) ,)),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const ProfileWidget(),
           const Padding(padding: EdgeInsets.only(top: 30)),
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 10)),
-              ClipOval(
-                child: Image.network('https://randomuser.me/api/portraits/men/66.jpg',
-                  width: 40,
-                  height: 40,
-                ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text(
-                      "Bank Bca",
-                    style: TextStyle(color: TextColor.titleColor),)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Top Up",
-                      style: TextStyle(color: TextColor.subtitleColor) ,)),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const ProfileWidget(),
           const Padding(padding: EdgeInsets.only(top: 30)),
-          Row(
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 10)),
-              ClipOval(
-                child: Image.network('https://randomuser.me/api/portraits/men/66.jpg',
-                  width: ImageSize.imageWidth,
-                  height: ImageSize.imageHeight,
-                ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Bank Bca")),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: Title(color: Colors.white, child: const Text("Top Up",
-                      style: TextStyle(color: Colors.grey) ,)),
-                  ),
-                ],
-              ),
-            ],
-          ),
+          const ProfileWidget(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -217,6 +88,40 @@ class _HomeViewState extends State<HomeView> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class ProfileWidget extends StatelessWidget {
+  const ProfileWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        const Padding(padding: EdgeInsets.only(left: 10)),
+        ClipOval(
+          child: Image.network(ImageAdress.imageAdress,
+            width: ImageSize.imageWidth,
+            height: ImageSize.imageHeight,
+          ),
+        ),
+        Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Title(color: Colors.white, child: const Text(AppTexts.bank)),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+              child: Title(color: Colors.white, child: const Text(AppTexts.topUp,
+                style: TextStyle(color: Colors.grey) ,)),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
