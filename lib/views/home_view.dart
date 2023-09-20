@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/theme/app_theme.dart';
+import 'package:wallet_app/constants/app_theme.dart';
+import 'package:wallet_app/constants/colors.dart';
+
+import '../constants/assets.dart';
+import '../constants/dimens.dart';
+import '../constants/strings.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -18,7 +23,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
       appBar: AppBar(
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         leading: const Icon(Icons.person),
@@ -54,14 +59,14 @@ class _HomeViewState extends State<HomeView> {
               const SizedBox(width: 10,),
               ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.currency_exchange_sharp),
                 label: const Text("Transfer"),style:
-                TextButton.styleFrom(backgroundColor: Colors.grey),
+                TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
               ),
             ],
           ),
           const SizedBox(height: 20,),
           Container(
             margin: const EdgeInsets.only(right: 280),
-            child: const Text("Transactions",style: TextStyle(fontSize: 17,color: Colors.white),
+            child: const Text("Transactions",style: TextStyle(fontSize: 17,color: TextColor.titleColor),
             ),
           ),
           const SizedBox(height: 20,),
@@ -105,7 +110,7 @@ class ProfileWidget extends StatelessWidget {
         children: [
           const Padding(padding: EdgeInsets.only(left: PaddingSizes.paddingLeft)),
           ClipOval(
-            child: Image.network(ImageAdress.imageAdress,
+            child: Image.network(ImageAdress.profileImageAdress,
               width: ImageSize.imageWidth,
               height: ImageSize.imageHeight,
             ),
