@@ -77,30 +77,20 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey,
-        onTap: _onItemTapped,
-        currentIndex: _selectedIndex,
         selectedItemColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(
-            label:'',
-            icon: Icon(Icons.home),
-          ),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.change_circle),
-          ),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.settings),
-          ),
-          BottomNavigationBarItem(
-            label: '',
-            icon: Icon(Icons.cloud_download_rounded),
-          ),
+        onTap: _onItemTapped,
+        backgroundColor: Colors.grey,
+        items: [
+          buildBottomNavigationBarItem(const Icon(Icons.home)),
+          buildBottomNavigationBarItem(const Icon(Icons.settings)),
+          buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded)),
         ],
       ),
     );
+  }
+
+  BottomNavigationBarItem buildBottomNavigationBarItem(Icon icon) {
+    return BottomNavigationBarItem(label: '', icon: icon);
   }
 }
 
