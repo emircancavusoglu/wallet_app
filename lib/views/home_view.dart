@@ -66,19 +66,20 @@ class _HomeViewState extends State<HomeView> {
           ),
           const SizedBox(height: 20,),
           const ProfileWidget(),
-          const Padding(padding: EdgeInsets.only(top: 30)),
+          const Padding(padding: EdgeInsets.only(top: PaddingSizes.paddingTop)),
           const ProfileWidget(),
-          const Padding(padding: EdgeInsets.only(top: 30)),
+          const Padding(padding: EdgeInsets.only(top: PaddingSizes.paddingTop)),
           const ProfileWidget(),
-          const Padding(padding: EdgeInsets.only(top: 30)),
+          const Padding(padding: EdgeInsets.only(top: PaddingSizes.paddingTop)),
           const ProfileWidget(),
-          const Padding(padding: EdgeInsets.only(top: 30)),
+          const Padding(padding: EdgeInsets.only(top: PaddingSizes.paddingTop)),
           const ProfileWidget(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
         onTap: _onItemTapped,
+        currentIndex: _selectedIndex,
         backgroundColor: Colors.grey,
         items: [
           buildBottomNavigationBarItem(const Icon(Icons.home)),
@@ -88,12 +89,10 @@ class _HomeViewState extends State<HomeView> {
       ),
     );
   }
-
   BottomNavigationBarItem buildBottomNavigationBarItem(Icon icon) {
     return BottomNavigationBarItem(label: '', icon: icon);
   }
 }
-
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({
     super.key,
@@ -104,7 +103,7 @@ class ProfileWidget extends StatelessWidget {
     return Expanded(
       child: Row(
         children: [
-          const Padding(padding: EdgeInsets.only(left: 10)),
+          const Padding(padding: EdgeInsets.only(left: PaddingSizes.paddingLeft)),
           ClipOval(
             child: Image.network(ImageAdress.imageAdress,
               width: ImageSize.imageWidth,
@@ -114,11 +113,11 @@ class ProfileWidget extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+                padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
                 child: Title(color: Colors.white, child: const Text(AppTexts.bank)),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10.0),
+                padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
                 child: Title(color: Colors.white, child: const Text(AppTexts.topUp,
                   style: TextStyle(color: Colors.grey) ,)),
               ),
