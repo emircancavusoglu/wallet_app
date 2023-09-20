@@ -105,30 +105,32 @@ class ProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(
-        children: [
-          const Padding(padding: EdgeInsets.only(left: PaddingSizes.paddingLeft)),
-          ClipOval(
-            child: Image.network(ImageAdress.profileImageAdress,
-              width: ImageSize.imageWidth,
-              height: ImageSize.imageHeight,
+    return SingleChildScrollView(
+      child: Expanded(
+        child: Row(
+          children: [
+            const Padding(padding: EdgeInsets.only(left: PaddingSizes.paddingLeft)),
+            ClipOval(
+              child: Image.network(ImageAdress.profileImageAdress,
+                width: ImageSize.imageWidth,
+                height: ImageSize.imageHeight,
+              ),
             ),
-          ),
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
-                child: Title(color: Colors.white, child: const Text(AppTexts.bank)),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
-                child: Title(color: Colors.white, child: const Text(AppTexts.topUp,
-                  style: TextStyle(color: Colors.grey) ,)),
-              ),
-            ],
-          ),
-        ],
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
+                  child: Title(color: Colors.white, child: const Text(AppTexts.bank)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
+                  child: Title(color: Colors.white, child: const Text(AppTexts.topUp,
+                    style: TextStyle(color: Colors.grey) ,)),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
