@@ -19,6 +19,39 @@ class _HomeViewState extends State<HomeView> {
       _selectedIndex = index;
     });
   }
+  void _openTransferDialog(BuildContext context){
+    showDialog(context: context, builder: (BuildContext context){
+      return const AlertDialog(
+        title: Text("Transfer"),
+        icon: Icon(Icons.attach_money_rounded),
+        content: Column(
+          children:[
+            TextField(
+            autofillHints: [AutofillHints.transactionCurrency],
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              label: Text('Money Type')
+            ),
+          ),
+            TextField(
+            autofillHints: [AutofillHints.transactionCurrency],
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              label: Text('Money Type')
+            ),
+          ),
+            TextField(
+            autofillHints: [AutofillHints.transactionCurrency],
+            keyboardType: TextInputType.text,
+            decoration: InputDecoration(
+              label: Text('Money Type')
+            ),
+          ),
+        ],
+        ),
+      );
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +90,9 @@ class _HomeViewState extends State<HomeView> {
                   label: const Text("Top Up"),style: TextButton.styleFrom(backgroundColor: Colors.grey),
                 ),
                 const SizedBox(width: 10,),
-                ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.currency_exchange_sharp),
+                ElevatedButton.icon(onPressed: (){
+                  _openTransferDialog(context);
+                }, icon: const Icon(Icons.currency_exchange_sharp),
                   label: const Text("Transfer"),style:
                   TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
                 ),
