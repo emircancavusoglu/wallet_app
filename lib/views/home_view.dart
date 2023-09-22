@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
-
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
@@ -118,9 +117,9 @@ class ProfileWidget extends StatelessWidget {
             ),
             Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
-                  child: Title(color: Colors.white, child: const Text(AppTexts.bank)),
+                const Padding(
+                  padding: EdgeInsets.only(left: PaddingSizes.paddingLeft),
+                  child: Text(AppTexts.bank,style: TextStyle(color: TextColor.titleColor),),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),

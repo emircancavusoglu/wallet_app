@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 class PaddingSizes{
   PaddingSizes._();
   static const double paddingTop = 30;
