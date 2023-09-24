@@ -16,31 +16,31 @@ abstract class StateManagement extends State<HomeView>{
         content: Form(
           child: Column(
             children:[
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value){
-                  return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
-                  },
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value){
-                  return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
-                  },
-              ),
-              TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value){
-                  return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
-                  },
-              )
+              textFormField(),
+              textFormField(),
+              textFormField()
             ],
           ),
         ),
       );
     });
   }
+  TextFormField textFormField() {
+    return TextFormField(
+      textInputAction: TextInputAction.next,
+      keyboardType: TextInputType.number,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: validatorCheck,
+    );
+  }
   BottomNavigationBarItem buildBottomNavigationBarItem(Icon icon) {
     return BottomNavigationBarItem(label: '', icon: icon);
   }
+  String? validatorCheck(String? data){
+  return (data?.isNotEmpty ?? false) ? null : ValidatorMessage._fillField;
+  }
+}
+
+class ValidatorMessage{
+  static const String _fillField = 'you should fill this field';
 }
