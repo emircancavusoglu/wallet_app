@@ -3,12 +3,12 @@ import '../views/home_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
   int selectedIndex = 0;
-  void _onItemTapped(int index){
+  void onItemTapped(int index){
     setState(() {
       selectedIndex = index;
     });
   }
-  void _openTransferDialog(BuildContext context){
+  void openTransferDialog(BuildContext context){
     showDialog(context: context, builder: (BuildContext context){
       return AlertDialog(
         title: const Text("Transfer"),

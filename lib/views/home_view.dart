@@ -4,6 +4,7 @@ import 'package:wallet_app/constants/colors.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
+import '../service/state_management.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -12,38 +13,7 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
-  int _selectedIndex = 0;
-  void _onItemTapped(int index){
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-  void _openTransferDialog(BuildContext context){
-    showDialog(context: context, builder: (BuildContext context){
-      return AlertDialog(
-        title: const Text("Transfer"),
-        icon: const Icon(Icons.attach_money_rounded),
-        content: Column(
-          children:[
-            textField(const Text("Money Type"), TextInputType.text,AutofillHints.transactionCurrency as AutofillHints),
-            textField(const Text("Iban"), TextInputType.number, AutofillHints.addressCity as AutofillHints),
-            textField(const Text("Amount"), TextInputType.number, AutofillHints.addressCity as AutofillHints)
-        ],
-        ),
-      );
-    });
-  }
-
-  TextField textField(Text label, TextInputType inputType, AutofillHints autofillHints) {
-    return TextField(
-      autofillHints: const [AutofillHints.addressCity],
-      keyboardType: inputType,
-      decoration: InputDecoration(
-          label: label
-          ),
-        );
-  }
+class _HomeViewState extends StateManagement{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +53,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 const SizedBox(width: 10,),
                 ElevatedButton.icon(onPressed: (){
-                  _openTransferDialog(context);
+                  openTransferDialog(context);
                 }, icon: const Icon(Icons.currency_exchange_sharp),
                   label: const Text("Transfer"),style:
                   TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
@@ -111,8 +81,8 @@ class _HomeViewState extends State<HomeView> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
-        onTap: _onItemTapped,
-        currentIndex: _selectedIndex,
+        onTap: onItemTapped,
+        currentIndex: selectedIndex,
         backgroundColor: Colors.grey,
         items: [
           buildBottomNavigationBarItem(const Icon(Icons.home)),
@@ -121,9 +91,6 @@ class _HomeViewState extends State<HomeView> {
         ],
       ),
     );
-  }
-  BottomNavigationBarItem buildBottomNavigationBarItem(Icon icon) {
-    return BottomNavigationBarItem(label: '', icon: icon);
   }
 }
 class ProfileWidget extends StatelessWidget {
