@@ -21,36 +21,28 @@ class _HomeViewState extends State<HomeView> {
   }
   void _openTransferDialog(BuildContext context){
     showDialog(context: context, builder: (BuildContext context){
-      return const AlertDialog(
-        title: Text("Transfer"),
-        icon: Icon(Icons.attach_money_rounded),
+      return AlertDialog(
+        title: const Text("Transfer"),
+        icon: const Icon(Icons.attach_money_rounded),
         content: Column(
           children:[
-            TextField(
-            autofillHints: [AutofillHints.transactionCurrency],
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              label: Text('Money Type')
-            ),
-          ),
-            TextField(
-            autofillHints: [AutofillHints.transactionCurrency],
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              label: Text('Money Type')
-            ),
-          ),
-            TextField(
-            autofillHints: [AutofillHints.transactionCurrency],
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              label: Text('Money Type')
-            ),
-          ),
+            textField(const Text("Money Type"), TextInputType.text,AutofillHints.transactionCurrency as AutofillHints),
+            textField(const Text("Iban"), TextInputType.number, AutofillHints.addressCity as AutofillHints),
+            textField(const Text("Amount"), TextInputType.number, AutofillHints.addressCity as AutofillHints)
         ],
         ),
       );
     });
+  }
+
+  TextField textField(Text label, TextInputType inputType, AutofillHints autofillHints) {
+    return TextField(
+      autofillHints: const [AutofillHints.addressCity],
+      keyboardType: inputType,
+      decoration: InputDecoration(
+          label: label
+          ),
+        );
   }
   @override
   Widget build(BuildContext context) {
