@@ -15,22 +15,17 @@ abstract class StateManagement extends State<HomeView>{
         icon: const Icon(Icons.attach_money_rounded),
         content: Column(
           children:[
-            textField(const Text("Money Type"), TextInputType.text,AutofillHints.transactionCurrency as AutofillHints),
-            textField(const Text("Iban"), TextInputType.number, AutofillHints.addressCity as AutofillHints),
-            textField(const Text("Amount"), TextInputType.number, AutofillHints.addressCity as AutofillHints)
+            Form(
+              child: TextFormField(
+                validator: (value){
+                  return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
+                  },
+              ),
+            )
           ],
         ),
       );
     });
-  }
-  TextField textField(Text label, TextInputType inputType, AutofillHints autofillHints) {
-    return TextField(
-      autofillHints: const [AutofillHints.addressCity],
-      keyboardType: inputType,
-      decoration: InputDecoration(
-          label: label
-      ),
-    );
   }
   BottomNavigationBarItem buildBottomNavigationBarItem(Icon icon) {
     return BottomNavigationBarItem(label: '', icon: icon);
