@@ -13,16 +13,29 @@ abstract class StateManagement extends State<HomeView>{
       return AlertDialog(
         title: const Text("Transfer"),
         icon: const Icon(Icons.attach_money_rounded),
-        content: Column(
-          children:[
-            Form(
-              child: TextFormField(
+        content: Form(
+          child: Column(
+            children:[
+              TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value){
                   return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
                   },
               ),
-            )
-          ],
+              TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value){
+                  return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
+                  },
+              ),
+              TextFormField(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                validator: (value){
+                  return (value?.isNotEmpty ?? false) ? null : 'you should fill this field';
+                  },
+              )
+            ],
+          ),
         ),
       );
     });
