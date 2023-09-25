@@ -16,17 +16,18 @@ abstract class StateManagement extends State<HomeView>{
         content: Form(
           child: Column(
             children:[
-              textFormField(),
-              textFormField(),
-              textFormField()
+              textFormField(const InputDecoration(label: Text("Money"))),
+              textFormField(const InputDecoration(label: Text("Cost"))),
+              textFormField(const InputDecoration(label: Text("Name")))
             ],
           ),
         ),
       );
     });
   }
-  TextFormField textFormField() {
+  TextFormField textFormField(InputDecoration inputDecoration) {
     return TextFormField(
+      decoration: inputDecoration,
       textInputAction: TextInputAction.next,
       keyboardType: TextInputType.number,
       autovalidateMode: AutovalidateMode.onUserInteraction,
