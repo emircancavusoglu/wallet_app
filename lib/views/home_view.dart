@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
+import 'package:wallet_app/views/home_dropdown.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
@@ -22,6 +23,7 @@ class _HomeViewState extends StateManagement{
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         leading: const Icon(Icons.person),
         actions: const [
+          DropDown(),
           Icon(Icons.notifications_none),
         ],
       ),
