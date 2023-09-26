@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
 import 'package:wallet_app/views/home_dropdown.dart';
+import 'package:wallet_app/views/top_up_view.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
@@ -50,7 +51,9 @@ class _HomeViewState extends StateManagement{
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton.icon(onPressed: (){}, icon: const Icon(Icons.price_change),
+                ElevatedButton.icon(onPressed: (){
+                  navigatorPush(context);
+                }, icon: const Icon(Icons.price_change),
                   label: const Text("Top Up"),style: TextButton.styleFrom(backgroundColor: Colors.grey),
                 ),
                 const SizedBox(width: 10,),

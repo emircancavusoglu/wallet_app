@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../views/home_view.dart';
+import '../views/top_up_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
   int selectedIndex = 0;
@@ -29,6 +30,10 @@ abstract class StateManagement extends State<HomeView>{
         ),
       );
     });
+  }
+
+  void navigatorPush(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const TopUpView(),));
   }
   TextFormField textFormField(InputDecoration inputDecoration, TextInputType textInputType) {
     return TextFormField(
