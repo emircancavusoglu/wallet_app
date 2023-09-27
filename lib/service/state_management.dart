@@ -33,7 +33,7 @@ abstract class StateManagement extends State<HomeView>{
   }
 
   void navigatorPush(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const TopUpView(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUpView(),));
   }
   TextFormField textFormField(InputDecoration inputDecoration, TextInputType textInputType) {
     return TextFormField(
