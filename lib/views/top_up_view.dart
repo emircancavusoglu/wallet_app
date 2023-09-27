@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/assets.dart';
+
+import '../service/post_model.dart';
 class TopUpView extends StatefulWidget {
 
   const TopUpView({Key? key}) : super(key: key);
@@ -10,8 +12,12 @@ class TopUpView extends StatefulWidget {
 }
 
 class _TopUpViewState extends State<TopUpView> {
-  String name = "Emircan";
+  void fetchPostItems(){
 
+
+  }
+  String name = "Emircan";
+  List<PostModel>? _items;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +25,11 @@ class _TopUpViewState extends State<TopUpView> {
         title: Text("Welcome $name"),
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: const EdgeInsets.only(left: 140, top: 20),
-              child: Image.network(ImageAdress.profileImageAdress)),
-        ],
-      ),
+      body: ListView.builder(
+        itemCount: _items?.length ?? 0,
+        itemBuilder: (context, index) {
+        return Text("data");
+      },)
     );
   }
 }
