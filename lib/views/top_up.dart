@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/constants/assets.dart';
 import 'package:wallet_app/constants/http_path.dart';
 import 'package:wallet_app/service/post_model.dart';
 
@@ -41,6 +42,12 @@ class _TopUpState extends State<TopUp> {
       appBar: AppBar(
         title: Text("Welcome $name"),
         actions: [
+          ClipOval(
+            child: SizedBox(
+              width: 50,
+                height: 50,
+                child: Image.network(ImageAdress.profileImageAdress)),
+          ),
           isLoading ? const CircularProgressIndicator(): const SizedBox(),
         ],
       ),
