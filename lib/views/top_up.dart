@@ -10,16 +10,19 @@ class PostModelView extends StatefulWidget {
 }
 
 class _PostModelViewState extends State<PostModelView> {
+  void fetchData(){
+    Dio().get(ServicePaths.httpPath);
+  }
+  List<PostModel>? _items;
   @override
   Widget build(BuildContext context) {
-    Dio().get(ServicePaths.httpPath);
-    List<PostModel>? _items;
+
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        itemCount: _items?.length ?? 0,
+        itemCount: _items?. length ?? 0,
         itemBuilder: (context, index) {
-        return Text("data");
+        return Text("_items");
       },),
     );
   }
