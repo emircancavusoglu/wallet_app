@@ -10,8 +10,13 @@ class PostModelView extends StatefulWidget {
 }
 
 class _PostModelViewState extends State<PostModelView> {
-  void fetchData(){
-    Dio().get(ServicePaths.httpPath);
+  @override
+  void initState(){
+    super.initState();
+    fetchData();
+  }
+  Future<void>fetchData() async{
+    final response = await Dio().get(ServicePaths.httpPath);
   }
   List<PostModel>? _items;
   @override
