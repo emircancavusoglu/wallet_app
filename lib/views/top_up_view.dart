@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/assets.dart';
@@ -13,7 +14,7 @@ class TopUpView extends StatefulWidget {
 
 class _TopUpViewState extends State<TopUpView> {
   void fetchPostItems(){
-
+    Dio().get('path');
 
   }
   String name = "Emircan";
@@ -25,11 +26,7 @@ class _TopUpViewState extends State<TopUpView> {
         title: Text("Welcome $name"),
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
       ),
-      body: ListView.builder(
-        itemCount: _items?.length ?? 0,
-        itemBuilder: (context, index) {
-        return Text("data");
-      },)
+      body: Text(""),
     );
   }
 }
