@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/views/top_up.dart';
+import 'package:wallet_app/views/upload_data.dart';
 import '../views/home_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
@@ -7,6 +7,7 @@ abstract class StateManagement extends State<HomeView>{
   void onItemTapped(int index){
     setState(() {
       selectedIndex = index;
+      Navigator.push(context, MaterialPageRoute(builder: (context) => const UploadData(),));
     });
   }
   void openTransferDialog(BuildContext context){
@@ -33,7 +34,7 @@ abstract class StateManagement extends State<HomeView>{
   }
 
   void navigatorPush(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const UploadData(),));
   }
   TextFormField textFormField(InputDecoration inputDecoration, TextInputType textInputType) {
     return TextFormField(

@@ -1,18 +1,19 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/assets.dart';
 import 'package:wallet_app/constants/http_path.dart';
 import 'package:wallet_app/service/post_model.dart';
 
-class TopUp extends StatefulWidget {
-  const TopUp({Key? key}) : super(key: key);
+class UploadData extends StatefulWidget {
+  const UploadData({Key? key}) : super(key: key);
 
   @override
-  State<TopUp> createState() => _TopUpState();
+  State<UploadData> createState() => _UploadDataState();
 }
 
-class _TopUpState extends State<TopUp> {
+class _UploadDataState extends State<UploadData> {
   @override
   void initState(){
     super.initState();
@@ -40,6 +41,7 @@ class _TopUpState extends State<TopUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         title: Text("Welcome $name"),
         actions: [
           ClipOval(

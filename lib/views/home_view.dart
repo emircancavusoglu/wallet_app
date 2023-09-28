@@ -83,17 +83,21 @@ class _HomeViewState extends StateManagement{
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.white,
-        onTap: onItemTapped,
-        currentIndex: selectedIndex,
-        backgroundColor: Colors.grey,
-        items: [
-          buildBottomNavigationBarItem(const Icon(Icons.home)),
-          buildBottomNavigationBarItem(const Icon(Icons.settings)),
-          buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded)),
-        ],
-      ),
+      bottomNavigationBar: buildBottomNavigationBar(),
+    );
+  }
+
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      selectedItemColor: Colors.white,
+      onTap: onItemTapped,
+      currentIndex: selectedIndex,
+      backgroundColor: Colors.grey,
+      items: [
+        buildBottomNavigationBarItem(const Icon(Icons.home)),
+        buildBottomNavigationBarItem(const Icon(Icons.settings)),
+        buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded)),
+      ],
     );
   }
 }
@@ -124,7 +128,7 @@ class ProfileWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
                   child: Title(color: Colors.white, child: const Text(AppTexts.topUp,
-                    style: TextStyle(color: Colors.grey) ,)),
+                    style: TextStyle(color: Colors.grey),)),
                 ),
               ],
             ),
