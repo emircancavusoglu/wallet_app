@@ -1,25 +1,26 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/http_path.dart';
 import 'package:wallet_app/service/post_model.dart';
-class PostModelView extends StatefulWidget {
-  const PostModelView({Key? key}) : super(key: key);
+
+class TopUp extends StatefulWidget {
+  const TopUp({Key? key}) : super(key: key);
 
   @override
-  State<PostModelView> createState() => _PostModelViewState();
+  State<TopUp> createState() => _TopUpState();
 }
 
-class _PostModelViewState extends State<PostModelView> {
-  bool isLoading = false;
-  void changeIsLoading(){
-    isLoading = !isLoading;
-  }
+class _TopUpState extends State<TopUp> {
   @override
   void initState(){
     super.initState();
     fetchData();
+  }
+  final String name = "Emircan";
+  bool isLoading = false;
+  void changeIsLoading(){
+    isLoading = !isLoading;
   }
   Future<void>fetchData() async{
     final response = await Dio().get(ServicePaths.httpPath);
@@ -36,11 +37,11 @@ class _PostModelViewState extends State<PostModelView> {
   List<PostModel>? _items;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
+        title: Text("Welcome $name"),
         actions: [
-          isLoading ? const CircularProgressIndicator(): SizedBox(),
+          isLoading ? const CircularProgressIndicator(): const SizedBox(),
         ],
       ),
       body: ListView.builder(
@@ -50,7 +51,8 @@ class _PostModelViewState extends State<PostModelView> {
           title: Text(_items?[index].title ?? ''),
           subtitle: Text(_items?[index].body ?? ''),
         );
-      },),
+      },
+      ),
     );
   }
 }

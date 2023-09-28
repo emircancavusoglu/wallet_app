@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/views/top_up.dart';
 import '../views/home_view.dart';
-import '../views/top_up_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
   int selectedIndex = 0;
@@ -33,7 +33,7 @@ abstract class StateManagement extends State<HomeView>{
   }
 
   void navigatorPush(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUpView(),));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUp(),));
   }
   TextFormField textFormField(InputDecoration inputDecoration, TextInputType textInputType) {
     return TextFormField(

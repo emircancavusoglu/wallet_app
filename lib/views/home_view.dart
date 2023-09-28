@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
 import 'package:wallet_app/views/home_dropdown.dart';
-import 'package:wallet_app/views/top_up_view.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
