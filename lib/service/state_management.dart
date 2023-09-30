@@ -3,12 +3,16 @@ import 'package:wallet_app/views/upload_data.dart';
 import '../views/home_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
+  List<Widget> pages = [
+     const UploadData(),
+     const HomeView()
+  ];
   int selectedIndex = 0;
   void onItemTapped(int index){
     setState(() {
-      selectedIndex = index;
-      Navigator.push(context, MaterialPageRoute(builder: (context) => const UploadData(),));
-    });
+        selectedIndex = index;
+      }
+       );
   }
   void openTransferDialog(BuildContext context){
     showDialog(context: context, builder: (BuildContext context){
@@ -36,7 +40,8 @@ abstract class StateManagement extends State<HomeView>{
   void navigatorPush(BuildContext context) {
     Navigator.push(context, MaterialPageRoute(builder: (context) => const UploadData(),));
   }
-  TextFormField textFormField(InputDecoration inputDecoration, TextInputType textInputType) {
+  TextFormField textFormField(InputDecoration inputDecoration,
+      TextInputType textInputType) {
     return TextFormField(
       decoration: inputDecoration,
       textInputAction: TextInputAction.next,
@@ -45,8 +50,12 @@ abstract class StateManagement extends State<HomeView>{
       validator: validatorCheck,
     );
   }
-  BottomNavigationBarItem buildBottomNavigationBarItem(Icon icon) {
-    return BottomNavigationBarItem(label: '', icon: icon);
+  BottomNavigationBarItem buildBottomNavigationBarItem(
+      Icon icon, MaterialPageRoute<void> pageName) {
+    return BottomNavigationBarItem(
+      label: '',
+      icon: icon,
+    );
   }
   String? validatorCheck(String? data){
   return (data?.isNotEmpty ?? false) ? null : ValidatorMessage._fillField;
