@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallet_app/views/completed_page.dart';
 import 'package:wallet_app/views/upload_data.dart';
 import '../views/home_view.dart';
 
@@ -30,15 +31,14 @@ abstract class StateManagement extends State<HomeView>{
               textFormField(const InputDecoration(label: Text("Name")),
               TextInputType.text
               ),
+            ElevatedButton(onPressed: (){
+              navigateToWidget(context, const CompletedView());
+            }, child: const Text("Send")),
             ],
           ),
         ),
       );
     });
-  }
-
-  void navigatorPush(BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const UploadData(),));
   }
   TextFormField textFormField(InputDecoration inputDecoration,
       TextInputType textInputType) {
@@ -65,3 +65,8 @@ abstract class StateManagement extends State<HomeView>{
 class ValidatorMessage{
   static const String _fillField = 'you should fill this field';
 }
+void navigateToWidget(BuildContext context, Widget widget){
+  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+    return widget;
+  },));
+  }
