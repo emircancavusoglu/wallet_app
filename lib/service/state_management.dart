@@ -76,3 +76,15 @@ void navigateToWidget(BuildContext context, Widget widget){
     return widget;
   },));
   }
+
+  enum WidgetSizes{
+    sizedBoxHeight
+  }
+  extension WidgetSizesExtension on WidgetSizes{
+  double value(){
+    switch(this){
+      case WidgetSizes.sizedBoxHeight :
+        return 20;
+    }
+  }
+  }

@@ -6,7 +6,7 @@ class WalletAppBarTheme {
     backgroundColor: Colors.black,
   );
   static const BottomNavigationBarTheme bottomNavigationBarTheme = BottomNavigationBarTheme(
-      data: BottomNavigationBarThemeData(backgroundColor: Colors.purple,
+      data: BottomNavigationBarThemeData(backgroundColor: Colors.grey,
       elevation: 0,
         selectedItemColor: Colors.black,
 

@@ -37,17 +37,17 @@ class _HomeViewState extends StateManagement{
                 color: Colors.indigo,
                 width: 400,
                 height: 200,
-                child: const Column(
+                child:  Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("245,446",style: TextStyle(fontSize: 25),),
-                    SizedBox(height: 10,),
-                    Text("Total Balance",style: TextStyle(fontSize: 12),),
+                    const Text("245,446",style: TextStyle(fontSize: 25),),
+                    SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
+                    const Text("Total Balance",style: TextStyle(fontSize: 12),),
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 10,),
+            SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -64,7 +64,7 @@ class _HomeViewState extends StateManagement{
                 ),
               ],
             ),
-            const SizedBox(height: 20,),
+            SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             Container(
               margin: const EdgeInsets.only(right: 280),
               child: const Text("Transactions",style: TextStyle(fontSize: 17,color:
@@ -72,7 +72,7 @@ class _HomeViewState extends StateManagement{
               ),
               ),
             ),
-            const SizedBox(height: 20,),
+            SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             const ProfileWidget(),
             const Padding(padding: EdgeInsets.only(top: PaddingSizes.paddingTop)),
             const ProfileWidget(),
