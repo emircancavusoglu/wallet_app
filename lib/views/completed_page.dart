@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CompletedView extends StatefulWidget {
-  const CompletedView({Key? key}) : super(key: key);
-
+  const CompletedView({Key? key, required this.controller}) : super(key: key);
+  final TextEditingController? controller;
   @override
   State<CompletedView> createState() => _CompletedViewState();
 }
 
 class _CompletedViewState extends State<CompletedView> {
-  final TextEditingController _passwordController = TextEditingController();
   bool isSecure = true;
   void changeSecure(){
     setState(() {
@@ -22,7 +21,7 @@ class _CompletedViewState extends State<CompletedView> {
       body: TextField(
         autofillHints: const [AutofillHints.telephoneNumber],
         obscureText: isSecure,
-        controller: _passwordController,
+        controller: widget.controller,
         keyboardType: TextInputType.number,
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
