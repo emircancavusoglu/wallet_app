@@ -6,13 +6,15 @@ import '../views/home_view.dart';
 abstract class StateManagement extends State<HomeView>{
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<Widget> pages = [
-     const UploadData(),
-     const HomeView()
+     const HomeView(),
+     const HomeView(),
+    const UploadData(),
   ];
   int selectedIndex = 0;
   void onItemTapped(int index){
     setState(() {
         selectedIndex = index;
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => pages[index],));
       }
        );
   }
@@ -55,7 +57,7 @@ abstract class StateManagement extends State<HomeView>{
     );
   }
   BottomNavigationBarItem buildBottomNavigationBarItem(
-      Icon icon, MaterialPageRoute<void> pageName) {
+      Icon icon, MaterialPageRoute<void> pageRoute) {
     return BottomNavigationBarItem(
       label: '',
       icon: icon,

@@ -95,9 +95,9 @@ class _HomeViewState extends StateManagement{
       currentIndex: selectedIndex,
       backgroundColor: Colors.grey,
       items: [
-        buildBottomNavigationBarItem(const Icon(Icons.home),MaterialPageRoute(builder: (context) => const HomeView(),)),
-        buildBottomNavigationBarItem(const Icon(Icons.settings),MaterialPageRoute(builder: (context) => const UploadData(),)),
-        buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded),MaterialPageRoute(builder: (context) => const UploadData(),)),
+        buildBottomNavigationBarItem(const Icon(Icons.home),MaterialPageRoute(builder: (context) => HomeView(),)),
+        buildBottomNavigationBarItem(const Icon(Icons.settings),MaterialPageRoute(builder: (context) => HomeView(),)),
+        buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded),MaterialPageRoute(builder: (context) => UploadData(),)),
       ],
     );
   }
