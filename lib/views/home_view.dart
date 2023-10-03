@@ -67,7 +67,9 @@ class _HomeViewState extends StateManagement{
             const SizedBox(height: 20,),
             Container(
               margin: const EdgeInsets.only(right: 280),
-              child: const Text("Transactions",style: TextStyle(fontSize: 17,color: TextColor.titleColor),
+              child: const Text("Transactions",style: TextStyle(fontSize: 17,color:
+              TextColor.titleColor
+              ),
               ),
             ),
             const SizedBox(height: 20,),

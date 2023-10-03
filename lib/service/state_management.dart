@@ -4,6 +4,7 @@ import 'package:wallet_app/views/upload_data.dart';
 import '../views/home_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<Widget> pages = [
      const UploadData(),
      const HomeView()
@@ -21,6 +22,7 @@ abstract class StateManagement extends State<HomeView>{
         title: const Text("Transfer"),
         icon: const Icon(Icons.attach_money_rounded),
         content: Form(
+          key: _formKey,
           child: Column(
             children:[
               textFormField(const InputDecoration(label: Text("Money")),
@@ -32,8 +34,10 @@ abstract class StateManagement extends State<HomeView>{
               TextInputType.text
               ),
             ElevatedButton(onPressed: (){
-              navigateToWidget(context, const CompletedView());
-            }, child: const Text("Send")),
+              if(_formKey.currentState!.validate()){
+                navigateToWidget(context, const CompletedView());
+              }
+              }, child: const Text("Send")),
             ],
           ),
         ),
