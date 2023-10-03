@@ -28,11 +28,21 @@ class _CompletedViewState extends State<CompletedView> {
           border: const UnderlineInputBorder(),
           label: const Text("Secure Code"),
           hintText: '7 haneli güvenlik kodunuzu giriniz.',
-          suffixIcon: IconButton(onPressed: () {
-            changeSecure();
-          }, icon: Icon( isSecure ?  Icons.visibility : Icons.visibility_off)),
+          suffixIcon: onVisibilityIcon(),
         ),
       ),
+    );
+  }
+
+  IconButton onVisibilityIcon() {
+    return IconButton(onPressed: () {
+          changeSecure();
+        }, icon: AnimatedCrossFade(
+        firstChild: const Icon(Icons.visibility),
+      secondChild: const Icon(Icons.visibility_off),
+      duration: const Duration(seconds: 2),
+    crossFadeState: isSecure ? CrossFadeState.showFirst :
+    CrossFadeState.showSecond)
     );
   }
 }
