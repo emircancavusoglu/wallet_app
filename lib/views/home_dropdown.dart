@@ -20,7 +20,6 @@ class DropDown extends StatelessWidget {
           ));
     }).toList(),
         onChanged: (value){
-
         }
     );
   }

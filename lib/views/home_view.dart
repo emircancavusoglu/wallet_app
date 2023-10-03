@@ -93,7 +93,7 @@ class _HomeViewState extends StateManagement{
       selectedItemColor: Colors.white,
       onTap: onItemTapped,
       currentIndex: selectedIndex,
-      backgroundColor: Colors.grey,
+      backgroundColor: WalletAppBarTheme.bottomNavigationBarTheme.data.backgroundColor,
       items: [
         buildBottomNavigationBarItem(const Icon(Icons.home),MaterialPageRoute(builder: (context) => HomeView(),)),
         buildBottomNavigationBarItem(const Icon(Icons.settings),MaterialPageRoute(builder: (context) => HomeView(),)),
