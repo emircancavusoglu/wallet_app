@@ -31,9 +31,10 @@ class _CompletedViewState extends State<CompletedView> {
           suffixIcon: onVisibilityIcon(),
         ),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () {},
+        child: const Text("Send"),),
     );
   }
-
   IconButton onVisibilityIcon() {
     return IconButton(onPressed: () {
           changeSecure();

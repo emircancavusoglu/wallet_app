@@ -37,7 +37,7 @@ abstract class StateManagement extends State<HomeView>{
               ),
             ElevatedButton(onPressed: (){
               if(_formKey.currentState!.validate()){
-                navigateToWidget(context,  CompletedView(controller: null,));
+                navigateToWidget(context,  const CompletedView(controller: null,));
               }
               }, child: const Text("Send")),
             ],

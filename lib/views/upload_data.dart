@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/assets.dart';
 import 'package:wallet_app/constants/http_path.dart';
+import 'package:wallet_app/exception/custom_exception.dart';
 import 'package:wallet_app/service/post_model.dart';
 
 class UploadData extends StatefulWidget {
@@ -33,6 +34,9 @@ class _UploadDataState extends State<UploadData> {
         setState(() {
           _items = _datas.map((e) => PostModel.fromJson(e)).toList();
         });
+      }
+      else{
+        throw CustomException();
       }
     }
   }
