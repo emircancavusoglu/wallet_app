@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/constants/app_theme.dart';
 
 class CacheImage extends StatefulWidget {
   const CacheImage({Key? key}) : super(key: key);
@@ -22,6 +23,12 @@ class _CacheImageState extends LoadingStateful<CacheImage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Center(
+          child: CircularProgressIndicator(
+            backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
+          ),
+        )],
         title: Text(_currentValue.toString()),
       ),
       floatingActionButton: FloatingActionButton(onPressed: () async {
