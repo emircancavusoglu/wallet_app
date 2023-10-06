@@ -25,6 +25,7 @@ class _UploadDataState extends State<UploadData> {
   void changeIsLoading(){
     isLoading = !isLoading;
   }
+  //fetchData
   Future<void>fetchData() async{
     final response = await Dio().get(ServicePaths.httpPath);
     if(response.statusCode == HttpStatus.ok){
