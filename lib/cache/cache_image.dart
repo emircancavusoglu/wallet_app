@@ -10,6 +10,10 @@ class CacheImage extends StatefulWidget {
 
 class _CacheImageState extends State<CacheImage> {
   int _currentValue = 0;
+  bool _isLoading = false;
+  void _changeLoading(){
+    _isLoading = !_isLoading;
+  }
   void _onChange(String value){
     final _value = int.tryParse(value);
     if(_value !=null){
@@ -24,6 +28,10 @@ class _CacheImageState extends State<CacheImage> {
       appBar: AppBar(
         title: Text(_currentValue.toString()),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: () async {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setInt('counter', _currentValue);
+      },child: const Icon(Icons.save),),
       body: TextField(
         onChanged: (value){
           _onChange(value);
