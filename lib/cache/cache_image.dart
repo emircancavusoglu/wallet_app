@@ -8,12 +8,8 @@ class CacheImage extends StatefulWidget {
   State<CacheImage> createState() => _CacheImageState();
 }
 
-class _CacheImageState extends State<CacheImage> {
+class _CacheImageState extends LoadingStateful<CacheImage>{
   int _currentValue = 0;
-  bool _isLoading = false;
-  void _changeLoading(){
-    _isLoading = !_isLoading;
-  }
   void _onChange(String value){
     final _value = int.tryParse(value);
     if(_value !=null){
@@ -29,6 +25,7 @@ class _CacheImageState extends State<CacheImage> {
         title: Text(_currentValue.toString()),
       ),
       floatingActionButton: FloatingActionButton(onPressed: () async {
+        changeLoading();
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setInt('counter', _currentValue);
       },child: const Icon(Icons.save),),
@@ -38,5 +35,12 @@ class _CacheImageState extends State<CacheImage> {
         },
       ),
     );
+  }
+}
+
+abstract class LoadingStateful<T extends StatefulWidget> extends State<T> {
+  bool isLoading = false;
+  void changeLoading(){
+    isLoading = !isLoading;
   }
 }
