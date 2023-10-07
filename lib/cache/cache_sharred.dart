@@ -29,15 +29,14 @@ class _CacheImageState extends LoadingStateful<CacheImage>{
     final int? counter = prefs.getInt('counter');
     _onChange(counter.toString());
   }
-  Future<void>readValue()async{
+  Future<void>readItem()async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final int? counter = prefs.getInt('counter');
+    final int? counter = prefs.getInt(_currentValue.toString());
   }
   Future<void>removeItem()async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('counter');
+    await prefs.remove(_currentValue.toString());
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,17 +52,33 @@ class _CacheImageState extends LoadingStateful<CacheImage>{
         ],
         title: Text(_currentValue.toString()),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () async {
-        changeLoading();
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        await prefs.setInt('counter', _currentValue);
-      },child: const Icon(Icons.save),),
+      floatingActionButton: Row(
+        children: [
+          saveButton(),
+          removeButton(),
+          saveButton(),
+        ],
+      ),
       body: TextField(
         onChanged: (value){
           _onChange(value);
         },
       ),
     );
+  }
+
+  FloatingActionButton saveButton() {
+    return FloatingActionButton(onPressed: () async {
+      changeLoading();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt('counter', _currentValue);
+    },child: const Icon(Icons.save),);
+  }FloatingActionButton removeButton() {
+    return FloatingActionButton(onPressed: () async {
+      changeLoading();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove('counter');
+    },child: const Icon(Icons.save),);
   }
 }
 
