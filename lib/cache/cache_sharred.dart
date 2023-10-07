@@ -33,7 +33,10 @@ class _CacheImageState extends LoadingStateful<CacheImage>{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final int? counter = prefs.getInt('counter');
   }
-
+  Future<void>removeItem()async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('counter');
+  }
 
   @override
   Widget build(BuildContext context) {
