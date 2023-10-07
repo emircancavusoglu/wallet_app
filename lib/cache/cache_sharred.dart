@@ -10,6 +10,11 @@ class CacheImage extends StatefulWidget {
 }
 
 class _CacheImageState extends LoadingStateful<CacheImage>{
+  @override
+  void initState() {
+    super.initState();
+    getDefaultValues();
+  }
   int _currentValue = 0;
   void _onChange(String value){
     final _value = int.tryParse(value);
@@ -19,16 +24,30 @@ class _CacheImageState extends LoadingStateful<CacheImage>{
       });
     }
   }
+  Future<void> getDefaultValues()async{
+    final prefs = await SharedPreferences.getInstance();
+    final int? counter = prefs.getInt('counter');
+    _onChange(counter.toString());
+  }
+  Future<void>readValue()async{
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final int? counter = prefs.getInt('counter');
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          isLoading ?
           Center(
           child: CircularProgressIndicator(
             backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
           ),
-        )],
+        )
+              : const SizedBox.shrink(),
+        ],
         title: Text(_currentValue.toString()),
       ),
       floatingActionButton: FloatingActionButton(onPressed: () async {
