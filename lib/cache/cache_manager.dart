@@ -1,6 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wallet_app/cache/cache_exception.dart';
 
+enum SharedKeys{ counter }
 class CacheManager{
   SharedPreferences? preferences;
   CacheManager(){
@@ -10,21 +11,23 @@ class CacheManager{
     preferences =  await SharedPreferences.getInstance();
   }
   void _checkPreferences(){
-    if(preferences == null){
-      CacheException();
-    }
+    if(preferences == null) throw CacheException();
+
   }
-  Future<void> saveString(String key, String value)async{
+  Future<void> saveString(SharedKeys key, String value)async{
+    _checkPreferences();
     final preferences = await SharedPreferences.getInstance();
-    await preferences.setString('counter', value);
+    await preferences.setString(key.name, value);
   }
-  Future<String?>getString(String key)async{
+  Future<String?>getString(SharedKeys key)async{
+    _checkPreferences();
     final preferences = await SharedPreferences.getInstance();
-    return preferences.getString('counter');
+    return preferences.getString(key.name);
   }
-  Future<bool?> removeString(String key)async{
+  Future<bool?> removeString(SharedKeys key)async{
+    _checkPreferences();
     final preferences = await SharedPreferences.getInstance();
-    return (await preferences?.remove('counter')) ?? false;
+    return (await preferences?.remove(key.name)) ?? false;
   }
 
 }
