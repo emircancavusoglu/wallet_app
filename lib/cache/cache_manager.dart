@@ -1,4 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wallet_app/cache/cache_exception.dart';
 
 class CacheManager{
   SharedPreferences? preferences;
@@ -7,6 +8,11 @@ class CacheManager{
   }
   Future<void> init() async {
     preferences =  await SharedPreferences.getInstance();
+  }
+  void _checkPreferences(){
+    if(preferences == null){
+      CacheException();
+    }
   }
   Future<void> saveString(String key, String value)async{
     final preferences = await SharedPreferences.getInstance();
