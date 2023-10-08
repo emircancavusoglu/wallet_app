@@ -29,6 +29,5 @@ class CacheManager{
     final preferences = await SharedPreferences.getInstance();
     return (await preferences?.remove(key.name)) ?? false;
   }
-
 }
 

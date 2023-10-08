@@ -1,19 +1,25 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
+import 'package:wallet_app/cache/cache_manager.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 
-class CacheImage extends StatefulWidget {
-  const CacheImage({Key? key}) : super(key: key);
+class CacheSharred extends StatefulWidget {
+  const CacheSharred({Key? key}) : super(key: key);
 
   @override
-  State<CacheImage> createState() => _CacheImageState();
+  State<CacheSharred> createState() => _CacheSharredState();
 }
 
-class _CacheImageState extends LoadingStateful<CacheImage>{
+class _CacheSharredState extends LoadingStateful<CacheSharred>{
+  late final CacheManager _manager;
   @override
   void initState() {
     super.initState();
-    getDefaultValues();
+    _manager = CacheManager();
+  }
+  Future<void> initialize() async {
+    changeLoading();
+    await _manager.init();
   }
   int _currentValue = 0;
   void _onChange(String value){
