@@ -19,10 +19,9 @@ class CacheManager{
     final preferences = await SharedPreferences.getInstance();
     await preferences.setString(key.name, value);
   }
-  Future<String?>getString(SharedKeys key)async{
+  String? getString(SharedKeys key){
     _checkPreferences();
-    final preferences = await SharedPreferences.getInstance();
-    return preferences.getString(key.name);
+    return preferences?.getString(key.name);
   }
   Future<bool?> removeString(SharedKeys key)async{
     _checkPreferences();
