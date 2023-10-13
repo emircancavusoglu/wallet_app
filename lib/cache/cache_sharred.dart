@@ -34,7 +34,6 @@ class _CacheSharredState extends LoadingStateful<CacheSharred>{
     }
   }
   Future<void> getDefaultValues()async{
-
     _onChange(_manager.getString(SharedKeys.counter)?? '');
   }
   Future<void>readItem()async{
