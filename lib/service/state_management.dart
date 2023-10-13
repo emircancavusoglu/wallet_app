@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/views/completed_page.dart';
+import 'package:wallet_app/views/profile_view.dart';
 import 'package:wallet_app/views/upload_data.dart';
 import '../views/home_view.dart';
 
@@ -7,7 +8,7 @@ abstract class StateManagement extends State<HomeView>{
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<Widget> pages = [
      const HomeView(),
-     const HomeView(),
+     const ProfileView(),
     const UploadData(),
   ];
   int selectedIndex = 0;
