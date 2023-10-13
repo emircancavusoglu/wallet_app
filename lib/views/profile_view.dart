@@ -16,7 +16,7 @@ class _ProfileViewState extends State<ProfileView> {
     profiles = ProfileItems().profiles;
   }
   final String profileTitle = "Profile";
-  late final List<Profile>profiles;
+  late List<Profile>profiles;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,16 @@ class _ProfileViewState extends State<ProfileView> {
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         title: Text(profileTitle),
       ),
-      body: Text("deneme"),
+      body: ListView.builder(
+        itemCount: profiles.length,
+        itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(profiles[index].name),
+          subtitle: Text(profiles[index].surname),
+          trailing: Text(profiles[index].money.toString()),
+          leading: Text(profiles[index].moneyType),
+        );
+      },),
     );
   }
 }

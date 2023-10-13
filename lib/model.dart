@@ -1,8 +1,8 @@
 class Profile{
-  final String? name;
-  final String? surname;
-  final double? money;
-  final String? moneyType;
+  final String name;
+  final String surname;
+  final double money;
+  final String moneyType;
   Profile(this.name, this.surname, this.money, this.moneyType);
 }
 class ProfileItems{
