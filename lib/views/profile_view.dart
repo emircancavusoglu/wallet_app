@@ -24,16 +24,18 @@ class _ProfileViewState extends State<ProfileView> {
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         title: Text(profileTitle),
       ),
-      body: ListView.builder(
-        itemCount: profiles.length,
-        itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(profiles[index].name),
-          subtitle: Text(profiles[index].surname),
-          trailing: Text(profiles[index].money.toString()),
-          leading: Text(profiles[index].moneyType),
-        );
-      },),
+      body: Card(
+        child: ListView.builder(
+          itemCount: profiles.length,
+          itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(profiles[index].name),
+            subtitle: Text(profiles[index].surname),
+            trailing: Text(profiles[index].money.toString()),
+            leading: Text(profiles[index].moneyType, style: Theme.of(context).textTheme.titleMedium?.copyWith(decoration: TextDecoration.underline),),
+          );
+        },),
+      ),
     );
   }
 }
