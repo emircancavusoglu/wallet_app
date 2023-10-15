@@ -12,7 +12,6 @@ class CacheManager{
   }
   void _checkPreferences(){
     if(preferences == null) throw CacheException();
-
   }
   Future<void> saveString(SharedKeys key, String value)async{
     _checkPreferences();
@@ -23,9 +22,10 @@ class CacheManager{
     _checkPreferences();
     await preferences?.setStringList(key.name, value);
   }
-  String? getString(SharedKeys key){
+
+  List<String>? getString(SharedKeys key){
     _checkPreferences();
-    return preferences?.getString(key.name);
+    return preferences?.getStringList(key.name);
   }
   Future<bool?> removeString(SharedKeys key)async{
     _checkPreferences();
