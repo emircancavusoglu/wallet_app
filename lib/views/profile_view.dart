@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
-import 'package:wallet_app/model.dart';
+import 'package:wallet_app/service/profile_model.dart';
+import 'package:wallet_app/cache/cache_manager.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({Key? key}) : super(key: key);
@@ -14,13 +15,23 @@ class _ProfileViewState extends State<ProfileView> {
   void initState() {
     super.initState();
     profiles = ProfileItems().profiles;
+    CacheManager cacheManager = CacheManager();
   }
+  late CacheManager cacheManager;
   final String profileTitle = "Profile";
   late List<Profile>profiles;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            cacheManager.saveString(SharedKeys.counter, profileTitle);
+          }, icon: const Icon(Icons.download)),
+          IconButton(onPressed: (){
+
+          }, icon: const Icon(Icons.remove_circle_outlined)),
+        ],
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         title: Text(profileTitle),
       ),
