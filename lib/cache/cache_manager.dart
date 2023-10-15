@@ -19,6 +19,11 @@ class CacheManager{
     final preferences = await SharedPreferences.getInstance();
     await preferences.setString(key.name, value);
   }
+  Future<void> saveStringItems(SharedKeys key, List<String> value)async{
+    _checkPreferences();
+    final preferences = await SharedPreferences.getInstance();
+    await preferences.setStringList(key.name, value);
+  }
   String? getString(SharedKeys key){
     _checkPreferences();
     return preferences?.getString(key.name);
