@@ -17,7 +17,6 @@ class _CacheSharredState extends LoadingStateful<CacheSharred>{
     super.initState();
     _manager = CacheManager();
     initialize();
-    getDefaultValues();
   }
   Future<void> initialize() async {
     changeLoading();
@@ -32,9 +31,6 @@ class _CacheSharredState extends LoadingStateful<CacheSharred>{
         _currentValue = _value;
       });
     }
-  }
-  Future<void> getDefaultValues()async{
-    _onChange(_manager.getString(SharedKeys.counter)?? '');
   }
   Future<void>readItem()async{
     final SharedPreferences prefs = await SharedPreferences.getInstance();
