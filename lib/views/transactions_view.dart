@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
-import 'package:wallet_app/service/profile_model.dart';
+import 'package:wallet_app/service/transactions_model.dart';
 import 'package:wallet_app/cache/cache_manager.dart';
 
-class ProfileView extends StatefulWidget {
-  const ProfileView({Key? key}) : super(key: key);
+class TransactionsView extends StatefulWidget {
+  const TransactionsView({Key? key}) : super(key: key);
 
   @override
-  State<ProfileView> createState() => _ProfileViewState();
+  State<TransactionsView> createState() => _TransactionsViewState();
 }
 
-class _ProfileViewState extends State<ProfileView> {
+class _TransactionsViewState extends State<TransactionsView> {
   @override
   void initState() {
     super.initState();
@@ -28,9 +28,7 @@ class _ProfileViewState extends State<ProfileView> {
           IconButton(onPressed: (){
             cacheManager.saveString(SharedKeys.counter, profileTitle);
           }, icon: const Icon(Icons.download)),
-          IconButton(onPressed: (){
-
-          }, icon: const Icon(Icons.remove_circle_outlined)),
+          IconButton(onPressed: (){}, icon: const Icon(Icons.remove_circle_outlined)),
         ],
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         title: Text(profileTitle),
