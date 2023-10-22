@@ -1,3 +1,5 @@
+// add bottomSheet for filtre feauture send money
+
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/service/transactions_model.dart';
@@ -33,6 +35,11 @@ class _TransactionsViewState extends State<TransactionsView> {
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         title: Text(profileTitle),
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        showModalBottomSheet(context: context, builder: (context) {
+          return Text("data");
+        },);
+      },child: const Icon(Icons.filter_list_sharp),),
       body: ProfileWidget(profiles: profiles),
     );
   }
