@@ -37,7 +37,25 @@ class _TransactionsViewState extends State<TransactionsView> {
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
         showModalBottomSheet(context: context, builder: (context) {
-          return Text("data");
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height*0.1,
+                  child: Row(
+                    children: [
+                      TextButton(onPressed: (){
+
+                      }, child: const Text("According name")),
+                      const SizedBox(width: 100,),
+                      Expanded(child: TextButton(onPressed: (){},child: const Text("According Money"),)),
+                    ]
+                    ),
+                ),
+              ],
+            ),
+          );
         },);
       },child: const Icon(Icons.filter_list_sharp),),
       body: ProfileWidget(profiles: profiles),
