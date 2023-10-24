@@ -21,27 +21,29 @@ abstract class StateManagement extends State<HomeView>{
   }
   void openTransferDialog(BuildContext context){
     showDialog(context: context, builder: (BuildContext context){
-      return AlertDialog(
-        title: const Text("Transfer"),
-        icon: const Icon(Icons.attach_money_rounded),
-        content: Form(
-          key: _formKey,
-          child: Column(
-            children:[
-              textFormField(const InputDecoration(label: Text("Money")),
-                  TextInputType.number),
-              textFormField(const InputDecoration(label: Text("Cost")),
-                TextInputType.number
-              ),
-              textFormField(const InputDecoration(label: Text("Name")),
-              TextInputType.text
-              ),
-            ElevatedButton(onPressed: (){
-              if(_formKey.currentState!.validate()){
-                navigateToWidget(context,  const CompletedView(controller: null,));
-              }
-              }, child: const Text("Send")),
-            ],
+      return InteractiveViewer(
+        child: AlertDialog(
+          title: const Text("Transfer"),
+          icon: const Icon(Icons.attach_money_rounded),
+          content: Form(
+            key: _formKey,
+            child: Column(
+              children:[
+                textFormField(const InputDecoration(label: Text("Money")),
+                    TextInputType.number),
+                textFormField(const InputDecoration(label: Text("Cost")),
+                  TextInputType.number
+                ),
+                textFormField(const InputDecoration(label: Text("Name")),
+                TextInputType.text
+                ),
+              ElevatedButton(onPressed: (){
+                if(_formKey.currentState!.validate()){
+                  navigateToWidget(context,  const CompletedView(controller: null,));
+                }
+                }, child: const Text("Send")),
+              ],
+            ),
           ),
         ),
       );

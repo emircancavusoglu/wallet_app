@@ -41,7 +41,7 @@ class _HomeViewState extends StateManagement{
                 child:  Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("245,446",style: TextStyle(fontSize: 25),),
+                    Text(AppTexts.amount.toString(),style: const TextStyle(fontSize: 25),),
                     SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
                     const Text("Total Balance",style: TextStyle(fontSize: 12),),
                   ],
