@@ -1,5 +1,4 @@
-// add bottomSheet for filtre feauture send money
-
+//add search bar
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/service/transactions_model.dart';
