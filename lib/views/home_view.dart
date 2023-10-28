@@ -6,7 +6,7 @@ import 'package:wallet_app/views/upload_data.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
-import '../service/state_management.dart';
+import '../management/state_management.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);

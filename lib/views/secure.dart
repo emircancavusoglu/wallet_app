@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/service/state_management.dart';
+import 'package:wallet_app/management/state_management.dart';
 import 'package:wallet_app/views/congrats_view.dart';
 
 class CompletedView extends StatefulWidget {
