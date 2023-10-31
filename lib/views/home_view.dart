@@ -16,6 +16,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends StateManagement{
+  String transactions = "Transactions";
+  String transfer = "Transfer";
+  String topUp = "Top Up";
+  String totalBalance = "Total Balance";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +47,7 @@ class _HomeViewState extends StateManagement{
                   children: [
                     Text(AppTexts.amount.toString(),style: const TextStyle(fontSize: 25),),
                     SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
-                    const Text("Total Balance",style: TextStyle(fontSize: 12),),
+                    Text(totalBalance,style: const TextStyle(fontSize: 12),),
                   ],
                 ),
               ),
@@ -54,13 +58,13 @@ class _HomeViewState extends StateManagement{
               children: [
                 ElevatedButton.icon(onPressed: (){
                 }, icon: const Icon(Icons.price_change),
-                  label: const Text("Top Up"),style: TextButton.styleFrom(backgroundColor: Colors.grey),
+                  label: Text(topUp),style: TextButton.styleFrom(backgroundColor: Colors.grey),
                 ),
                 const SizedBox(width: 10,),
                 ElevatedButton.icon(onPressed: (){
                   openTransferDialog(context);
                 }, icon: const Icon(Icons.currency_exchange_sharp),
-                  label: const Text("Transfer"),style:
+                  label: Text(transfer),style:
                   TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
                 ),
               ],
@@ -68,7 +72,7 @@ class _HomeViewState extends StateManagement{
             SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             Container(
               margin: const EdgeInsets.only(right: 280),
-              child: const Text("Transactions",style: TextStyle(fontSize: 17,color:
+              child: Text(transactions,style: const TextStyle(fontSize: 17,color:
               TextColor.titleColor
               ),
               ),
