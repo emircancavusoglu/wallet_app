@@ -56,10 +56,7 @@ class _HomeViewState extends StateManagement{
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton.icon(onPressed: (){
-                }, icon: const Icon(Icons.price_change),
-                  label: Text(topUp),style: TextButton.styleFrom(backgroundColor: Colors.grey),
-                ),
+                ElevatedButtonIcon(topUp: topUp),
                 const SizedBox(width: 10,),
                 ElevatedButton.icon(onPressed: (){
                   openTransferDialog(context);
@@ -104,6 +101,23 @@ class _HomeViewState extends StateManagement{
         buildBottomNavigationBarItem(const Icon(Icons.transfer_within_a_station),MaterialPageRoute(builder: (context) => const HomeView(),)),
         buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded),MaterialPageRoute(builder: (context) => const UploadData(),)),
       ],
+    );
+  }
+}
+
+class ElevatedButtonIcon extends StatelessWidget {
+  const ElevatedButtonIcon({
+    super.key,
+    required this.topUp,
+  });
+
+  final String topUp;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(onPressed: (){
+    }, icon: const Icon(Icons.price_change),
+      label: Text(topUp),style: TextButton.styleFrom(backgroundColor: Colors.grey),
     );
   }
 }
