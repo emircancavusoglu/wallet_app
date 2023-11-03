@@ -131,7 +131,8 @@ class ProfileWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: PaddingSizes.paddingLeft),
                 child: Title(color: Colors.white, child: const Text(AppTexts.topUp,
-                  style: TextStyle(color: Colors.grey),)),
+                  style: TextStyle(color: Colors.grey),),
+                ),
               ),
             ],
           ),

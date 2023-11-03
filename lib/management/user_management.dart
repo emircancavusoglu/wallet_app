@@ -7,9 +7,6 @@ class UserManagement <T extends SenderPerson>{
   }
 int calculateMoney(List<User>user){
   int sum = 0;
-  for(var item in user){
-    sum += item.money;
-  }
   int initialValue = sender.role == 1 ? sender.money : 0;
 
   final sumMoney = user.fold(initialValue, (previousValue, element) => previousValue+element.money);
