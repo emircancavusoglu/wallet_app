@@ -27,12 +27,13 @@ class _HomeViewState extends StateManagement{
       appBar: AppBar(
         title: const Text(AppTexts.appTitle),
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
-        leading: const Icon(Icons.person),
+        // leading: const Icon(Icons.person),
         actions: const [
           DropDown(),
           Icon(Icons.notifications_none),
         ],
       ),
+      drawer: const Drawer(backgroundColor: Colors.white,child: ListTile(title: Text(""),)),
       body: SingleChildScrollView(
         child: Column(
           children: [

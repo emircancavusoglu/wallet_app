@@ -22,5 +22,4 @@ class User{
 class SenderPerson extends User{
   final int role;
   SenderPerson(String name, String ibanNo, int money, this.role) : super(name,ibanNo, money);
-
 }
