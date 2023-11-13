@@ -16,7 +16,10 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends StateManagement{
-  String transactions = "Transactions";
+  final profile = DrawerMenuItems.profile;
+  final registeredUser = DrawerMenuItems.registeredPersons;
+  final transactions = DrawerMenuItems.transactions;
+
   String transfer = "Transfer";
   String topUp = "Top Up";
   String totalBalance = "Total Balance";
@@ -33,7 +36,11 @@ class _HomeViewState extends StateManagement{
           Icon(Icons.notifications_none),
         ],
       ),
-      drawer: const Drawer(backgroundColor: Colors.white,child: ListTile(title: Text(""),)),
+      drawer:  Drawer(backgroundColor: Colors.white,
+          child: ListTile(
+            title: Text(profile.name),
+          ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -69,8 +76,8 @@ class _HomeViewState extends StateManagement{
             ),
             SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             Container(
-              margin: const EdgeInsets.only(right: 280),
-              child: Text(transactions,style: const TextStyle(fontSize: 17,color:
+              margin:  const EdgeInsets.only(right: 280),
+              child: Text(DrawerMenuItems.transactions.name,style: const TextStyle(fontSize: 17,color:
               TextColor.titleColor
               ),
               ),

@@ -92,4 +92,6 @@ void navigateToWidget(BuildContext context, Widget widget){
   }
   }
 
-
+enum DrawerMenuItems{
+  profile, transactions, registeredPersons
+}
