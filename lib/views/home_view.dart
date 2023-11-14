@@ -35,9 +35,11 @@ class _HomeViewState extends StateManagement{
       drawer: Drawer(backgroundColor: Colors.white,
           child: Column(
             children: [
-              Text(DrawerMenuItems.profile.name),
-              Text(DrawerMenuItems.transactions.name),
-              Text(DrawerMenuItems.registeredPersons.name),
+              TextButton(onPressed: (){}, child: Text(DrawerMenuItems.profile.name)),
+              TextButton(onPressed: () {
+
+              }, child: Text(DrawerMenuItems.transactions.name)),
+              TextButton(onPressed: (){},child: Text(DrawerMenuItems.registeredPersons.name)),
             ],
           ),
       ),
