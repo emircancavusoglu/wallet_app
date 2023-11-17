@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
+import 'package:wallet_app/management/callback.dart';
 import 'package:wallet_app/views/home_dropdown.dart';
+import 'package:wallet_app/views/profile_details_view.dart';
+import 'package:wallet_app/views/registeredPersons.dart';
+import 'package:wallet_app/views/transaction_details_view.dart';
 import 'package:wallet_app/views/upload_data.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
@@ -28,18 +32,26 @@ class _HomeViewState extends StateManagement{
         backgroundColor: WalletAppBarTheme.appBarTheme.backgroundColor,
         // leading: const Icon(Icons.person),
         actions: const [
-          DropDown(),
+          Callback(),
           Icon(Icons.notifications_none),
         ],
       ),
       drawer: Drawer(backgroundColor: Colors.white,
           child: Column(
             children: [
-              TextButton(onPressed: (){}, child: Text(DrawerMenuItems.profile.name)),
+              const SizedBox(height: 20,),
+              TextButton(onPressed: (){
+                navigateToWidget(context, const ProfileView());
+              }, child: Text(DrawerMenuItems.Profile.name)),
+              Container(color: Colors.blue,height: 10,),
               TextButton(onPressed: () {
-
-              }, child: Text(DrawerMenuItems.transactions.name)),
-              TextButton(onPressed: (){},child: Text(DrawerMenuItems.registeredPersons.name)),
+                navigateToWidget(context, const TransactionsView());
+              }, child: Text(DrawerMenuItems.Transactions.name)),
+              Container(color: Colors.blue,height: 10,),
+              TextButton(onPressed: (){
+                navigateToWidget(context, const RegisteredPersons());
+              },child: Text(DrawerMenuItems.RegisteredPersons.name)),
+              Container(color: Colors.blue,height: 10,),
             ],
           ),
       ),
@@ -79,7 +91,7 @@ class _HomeViewState extends StateManagement{
             SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             Container(
               margin:  const EdgeInsets.only(right: 280),
-              child: Text(DrawerMenuItems.transactions.name,style: const TextStyle(fontSize: 17,color:
+              child: Text(DrawerMenuItems.Transactions.name,style: const TextStyle(fontSize: 17,color:
               TextColor.titleColor
               ),
               ),

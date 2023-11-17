@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/views/secure.dart';
-import 'package:wallet_app/views/transactions_view.dart';
+import 'package:wallet_app/views/transaction_details_view.dart';
 import 'package:wallet_app/views/upload_data.dart';
 import '../views/home_view.dart';
 
@@ -93,5 +93,5 @@ void navigateToWidget(BuildContext context, Widget widget){
   }
 
 enum DrawerMenuItems{
-  profile, transactions, registeredPersons
+  Profile, Transactions, RegisteredPersons
 }
