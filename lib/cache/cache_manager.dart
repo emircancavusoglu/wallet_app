@@ -30,7 +30,7 @@ class CacheManager{
   Future<bool?> removeString(SharedKeys key)async{
     _checkPreferences();
     final preferences = await SharedPreferences.getInstance();
-    return (await preferences?.remove(key.name)) ?? false;
+    return (await preferences.remove(key.name)) ?? false;
   }
 }
 
