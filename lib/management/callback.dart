@@ -40,5 +40,4 @@ class CallbackLanguage{
       CallbackLanguage("English", const Icon(Icons.flag)),
     ];
   }
-
 }

@@ -1,7 +1,7 @@
 //add search bar
 import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
-import 'package:wallet_app/service/transactions_model.dart';
+import 'package:wallet_app/service/model/transactions_model.dart';
 import 'package:wallet_app/cache/cache_manager.dart';
 
 class TransactionsView extends StatefulWidget {

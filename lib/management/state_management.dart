@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wallet_app/views/secure.dart';
-import 'package:wallet_app/views/transaction_details_view.dart';
-import 'package:wallet_app/views/upload_data.dart';
-import '../views/home_view.dart';
+import 'package:wallet_app/view/secure.dart';
+import 'package:wallet_app/service/views/transaction_details_view.dart';
+import 'package:wallet_app/service/views/upload_data.dart';
+import '';
+import '../view/home_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();

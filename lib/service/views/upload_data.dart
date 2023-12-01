@@ -5,7 +5,7 @@ import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/assets.dart';
 import 'package:wallet_app/constants/http_path.dart';
 import 'package:wallet_app/exception/custom_exception.dart';
-import 'package:wallet_app/service/post_model.dart';
+import 'package:wallet_app/service/model/post_model.dart';
 
 class UploadData extends StatefulWidget {
   const UploadData({Key? key}) : super(key: key);

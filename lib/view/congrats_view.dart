@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/management/state_management.dart';
-import 'package:wallet_app/views/home_view.dart';
+import 'package:wallet_app/view/home_view.dart';
+
+import 'home_view.dart';
 
 class CongratsView extends StatelessWidget {
   CongratsView({Key? key}) : super(key: key);

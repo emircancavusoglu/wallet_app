@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class WalletAppBarTheme {
+  final String uploadData = "Upload Data";
   WalletAppBarTheme._();
   static const AppBarTheme appBarTheme = AppBarTheme(
     backgroundColor: Colors.black,
   );
-  static const BottomNavigationBarTheme bottomNavigationBarTheme = BottomNavigationBarTheme(
-      data: BottomNavigationBarThemeData(backgroundColor: Colors.grey,
+  static  BottomNavigationBarTheme bottomNavigationBarTheme = BottomNavigationBarTheme(
+      data: const BottomNavigationBarThemeData(backgroundColor: Colors.grey,
       elevation: 0,
         selectedItemColor: Colors.black,
-
       ),
-      child: Text("Upload Data"),
+      child: Text(WalletAppBarTheme._().uploadData),
   );
 }
 

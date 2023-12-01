@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wallet_app/management/state_management.dart';
-import 'package:wallet_app/views/congrats_view.dart';
+import 'package:wallet_app/view/congrats_view.dart';
+
+import 'congrats_view.dart';
 
 class CompletedView extends StatefulWidget {
   const CompletedView({Key? key, required this.controller}) : super(key: key);
