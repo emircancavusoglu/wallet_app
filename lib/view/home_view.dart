@@ -119,8 +119,8 @@ class _HomeViewState extends StateManagement{
       backgroundColor: WalletAppBarTheme.bottomNavigationBarTheme.data.backgroundColor,
       items: [
         buildBottomNavigationBarItem(const Icon(Icons.home),MaterialPageRoute(builder: (context) => const HomeView(),)),
-        buildBottomNavigationBarItem(const Icon(Icons.transfer_within_a_station),MaterialPageRoute(builder: (context) => const HomeView(),)),
-        buildBottomNavigationBarItem(const Icon(Icons.cloud_download_rounded),MaterialPageRoute(builder: (context) => const UploadData(),)),
+        buildBottomNavigationBarItem(const Icon(Icons.compare_arrows),MaterialPageRoute(builder: (context) => const HomeView(),)),
+        buildBottomNavigationBarItem(const Icon(Icons.view_agenda),MaterialPageRoute(builder: (context) => const UploadData(),)),
       ],
     );
   }
@@ -136,8 +136,8 @@ class ElevatedButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(onPressed: (){
-    }, icon: const Icon(Icons.price_change),
+    return ElevatedButton.icon(onPressed: (){},
+      icon: const Icon(Icons.price_change),
       label: Text(topUp),style: TextButton.styleFrom(backgroundColor: Colors.grey),
     );
   }

@@ -15,13 +15,16 @@ class CongratsView extends StatelessWidget {
       body: Center(child: SizedBox(
           height: 100,
           width: 100,
-          child: Column(
-            children: [
-              Text(congrats),
-              TextButton(onPressed: (){
-                navigateToWidget(context, const HomeView());
-              },child: Text(navigateMainText),),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(congrats),
+                TextButton(onPressed: (){
+                  navigateToWidget(context, const HomeView());
+                },child:
+                     Text(navigateMainText)),
+              ],
+            ),
           ),
       ),
       ),

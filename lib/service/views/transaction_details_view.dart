@@ -27,7 +27,7 @@ class _TransactionsViewState extends State<TransactionsView> {
       appBar: AppBar(
         actions: [
           IconButton(onPressed: (){
-            cacheManager.saveString(SharedKeys.counter, profileTitle);
+            // cacheManager.saveString(SharedKeys.counter, profileTitle);
           }, icon: const Icon(Icons.download)),
           IconButton(onPressed: (){}, icon: const Icon(Icons.remove_circle_outlined)),
         ],
