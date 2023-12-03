@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
 import 'package:wallet_app/management/callback.dart';
+import 'package:wallet_app/service/view_model/currency_view.dart';
 import 'package:wallet_app/view/profile_details_view.dart';
 import 'package:wallet_app/view/registeredPersons.dart';
-import 'package:wallet_app/service/views/transaction_details_view.dart';
-import 'package:wallet_app/service/views/upload_data.dart';
+import 'package:wallet_app/service/view_model/transaction_details_view.dart';
+import 'package:wallet_app/service/view_model/upload_data.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
@@ -83,6 +84,13 @@ class _HomeViewState extends StateManagement{
                   openTransferDialog(context);
                 }, icon: const Icon(Icons.currency_exchange_sharp),
                   label: Text(transfer),style:
+                  TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
+                ),
+                const SizedBox(width: 10,),
+                ElevatedButton.icon(onPressed: (){
+                  navigateToWidget(context, const CurrencyView());
+                }, icon: const Icon(Icons.currency_exchange_sharp),
+                  label: const Text(" Live Currency "),style:
                   TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
                 ),
               ],

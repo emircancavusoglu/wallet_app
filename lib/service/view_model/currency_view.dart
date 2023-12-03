@@ -14,8 +14,10 @@ class _CurrencyViewState extends State<CurrencyView> {
   late final Dio dio;
   bool isLoading = false;
   void changeLoading(){
-    isLoading = !isLoading;
-  }
+    setState(() {
+      isLoading = !isLoading;
+    });
+   }
 
   @override
   void initState(){
@@ -24,15 +26,18 @@ class _CurrencyViewState extends State<CurrencyView> {
   }
 
   Future<void> fetchData() async {
-    final response = await Dio().get("rapidapi.com");
+    changeLoading();
+    final response = await Dio().get("https://alpha-vantage.p.rapidapi.com/query?function=DIGITAL_CURRENCY_MONTHLY&market=CNY&symbol=BTC");
     if(response.statusCode == 200){
       final _datas = response.data;
       if(_datas is List){
         setState(() {
-          _items = _datas.map((e) => CurrencyModel.fromJson(e)).toList();
+          _items = _datas.map((e)
+          => CurrencyModel.fromJson(e)).toList();
         });
         }
     }
+    changeLoading();
   }
   @override
   Widget build(BuildContext context) {
@@ -47,7 +52,8 @@ class _CurrencyViewState extends State<CurrencyView> {
         itemCount: _items?.length,
         itemBuilder: (context, index) {
         return ListTile(
-          title: Text(_items?[index].vary ?? ""),
+          title: Text(_items?[index].allow ?? ""),
+          subtitle: Text(_items?[index].contentType ?? ""),
         );
       },)
     );
