@@ -16,6 +16,9 @@ dependencies:
   #cache
   shared_preferences: ^2.2.1
 
+  #config
+  flutter_config: ^2.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

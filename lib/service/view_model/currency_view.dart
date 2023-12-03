@@ -11,7 +11,6 @@ class CurrencyView extends StatefulWidget {
 
 class _CurrencyViewState extends State<CurrencyView> {
   List<CurrencyModel>? _items;
-  late final Dio dio;
   bool isLoading = false;
   void changeLoading(){
     setState(() {
@@ -27,7 +26,7 @@ class _CurrencyViewState extends State<CurrencyView> {
 
   Future<void> fetchData() async {
     changeLoading();
-    final response = await Dio().get("https://alpha-vantage.p.rapidapi.com/query?function=DIGITAL_CURRENCY_MONTHLY&market=CNY&symbol=BTC");
+    final response = await Dio().get("https://api.exchangeratesapi.io/v1/");
     if(response.statusCode == 200){
       final _datas = response.data;
       if(_datas is List){
