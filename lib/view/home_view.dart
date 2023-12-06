@@ -87,12 +87,6 @@ class _HomeViewState extends StateManagement{
                   TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
                 ),
                 const SizedBox(width: 10,),
-                ElevatedButton.icon(onPressed: (){
-                  navigateToWidget(context, const CurrencyView());
-                }, icon: const Icon(Icons.currency_exchange_sharp),
-                  label: const Text(" Live Currency "),style:
-                  TextButton.styleFrom(backgroundColor: TextColor.subtitleColor),
-                ),
               ],
             ),
             SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
