@@ -10,6 +10,8 @@ class CurrencyView extends StatefulWidget {
 }
 
 class _CurrencyViewState extends State<CurrencyView> {
+  late final Dio _dio;
+  final _baseUrl = "https://api.exchangeratesapi.io/v1/";
   List<CurrencyModel>? _items;
   bool isLoading = false;
   void changeLoading(){
@@ -21,12 +23,13 @@ class _CurrencyViewState extends State<CurrencyView> {
   @override
   void initState(){
     super.initState();
+    _dio = Dio(BaseOptions(baseUrl: _baseUrl));
     fetchData();
   }
 
   Future<void> fetchData() async {
     changeLoading();
-    final response = await Dio().get("https://api.exchangeratesapi.io/v1/");
+    final response = await _dio.get("v1/");
     if(response.statusCode == 200){
       final _datas = response.data;
       if(_datas is List){
