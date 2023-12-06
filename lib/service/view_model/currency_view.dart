@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import '../model/currency_model.dart';
+import 'dart:io' show Platform;
 
 class CurrencyView extends StatefulWidget {
   const CurrencyView({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class CurrencyView extends StatefulWidget {
 class _CurrencyViewState extends State<CurrencyView> {
   late final Dio _dio;
   final _baseUrl = "https://api.exchangeratesapi.io/v1/";
+  final apiKey = Platform.environment['FABRIC_ID'];
   List<CurrencyModel>? _items;
   bool isLoading = false;
   void changeLoading(){
@@ -19,7 +21,6 @@ class _CurrencyViewState extends State<CurrencyView> {
       isLoading = !isLoading;
     });
    }
-
   @override
   void initState(){
     super.initState();
