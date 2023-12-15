@@ -1,13 +1,13 @@
-class WorldBankApi {
+class WorldBankModel {
   int? rows;
   int? os;
   int? page;
   int? total;
   Documents? documents;
 
-  WorldBankApi({this.rows, this.os, this.page, this.total, this.documents});
+  WorldBankModel({this.rows, this.os, this.page, this.total, this.documents});
 
-  WorldBankApi.fromJson(Map<String, dynamic> json) {
+  WorldBankModel.fromJson(Map<String, dynamic> json) {
     rows = json['rows'];
     os = json['os'];
     page = json['page'];

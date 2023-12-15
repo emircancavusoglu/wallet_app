@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/constants/app_theme.dart';
 import 'package:wallet_app/constants/colors.dart';
 import 'package:wallet_app/management/callback.dart';
-import 'package:wallet_app/service/view_model/currency_view.dart';
+import 'package:wallet_app/service/view_model/world_bank_view.dart';
 import 'package:wallet_app/view/profile_details_view.dart';
 import 'package:wallet_app/view/registeredPersons.dart';
 import 'package:wallet_app/service/view_model/transaction_details_view.dart';
-import 'package:wallet_app/service/view_model/upload_data.dart';
 import '../constants/assets.dart';
 import '../constants/dimens.dart';
 import '../constants/strings.dart';
@@ -122,7 +121,7 @@ class _HomeViewState extends StateManagement{
       items: [
         buildBottomNavigationBarItem(const Icon(Icons.home),MaterialPageRoute(builder: (context) => const HomeView(),)),
         buildBottomNavigationBarItem(const Icon(Icons.compare_arrows),MaterialPageRoute(builder: (context) => const HomeView(),)),
-        buildBottomNavigationBarItem(const Icon(Icons.view_agenda),MaterialPageRoute(builder: (context) => const UploadData(),)),
+        buildBottomNavigationBarItem(const Icon(Icons.view_agenda),MaterialPageRoute(builder: (context) => const WorldBankView(),)),
       ],
     );
   }
@@ -138,7 +137,9 @@ class ElevatedButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(onPressed: (){},
+    return ElevatedButton.icon(onPressed: (){
+      navigateToWidget(context, const WorldBankView());
+    },
       icon: const Icon(Icons.price_change),
       label: Text(topUp),style: TextButton.styleFrom(backgroundColor: Colors.grey),
     );
