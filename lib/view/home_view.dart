@@ -40,15 +40,15 @@ class _HomeViewState extends StateManagement{
               const SizedBox(height: 20,),
               TextButton(onPressed: (){
                 navigateToWidget(context, const ProfileView());
-              }, child: Text(DrawerMenuItems.Profile.name)),
+              }, child: Text(drawerMenuItems.first)),
               Container(color: Colors.blue,height: 10,),
               TextButton(onPressed: () {
                 navigateToWidget(context, const TransactionsView());
-              }, child: Text(DrawerMenuItems.Transactions.name)),
+              }, child: Text(drawerMenuItems[1])),
               Container(color: Colors.blue,height: 10,),
               TextButton(onPressed: (){
                 navigateToWidget(context, const RegisteredPersons());
-              },child: Text(DrawerMenuItems.RegisteredPersons.name)),
+              },child: Text(drawerMenuItems[2])),
               Container(color: Colors.blue,height: 10,),
             ],
           ),
@@ -90,7 +90,7 @@ class _HomeViewState extends StateManagement{
             SizedBox(height: WidgetSizes.sizedBoxHeight.value(),),
             Container(
               margin:  const EdgeInsets.only(right: 280),
-              child: Text(DrawerMenuItems.Transactions.name,style: const TextStyle(fontSize: 17,color:
+              child: Text(drawerMenuItems[2],style: const TextStyle(fontSize: 17,color:
               TextColor.titleColor
               ),
               ),

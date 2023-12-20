@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wallet_app/view/secure.dart';
 import 'package:wallet_app/service/view_model/transaction_details_view.dart';
 import 'package:wallet_app/service/view_model/upload_data.dart';
-import '../service/view_model/transaction_details_view.dart';
-import '../service/view_model/upload_data.dart';
 import '../view/home_view.dart';
 
 abstract class StateManagement extends State<HomeView>{
@@ -94,6 +92,4 @@ void navigateToWidget(BuildContext context, Widget widget){
   }
   }
 
-enum DrawerMenuItems{
-  Profile, Transactions, RegisteredPersons
-}
+List<String> drawerMenuItems = ["Profile","Transactions","Registered Persons"];
